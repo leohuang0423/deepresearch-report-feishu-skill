@@ -1,0 +1,30 @@
+audience:
+  primary: ""
+  secondary: []
+decision_goal: ""
+reader_after_reading: ""
+deliverable:
+  kind: feishu_doc_tree
+  layers:
+    - main_report
+    - appendix
+  tone: mature-discussion
+quality_bar:
+  target_level: extreme_expert_shareable
+  must_be:
+    - concrete
+    - evidence_backed
+    - sharp_but_bounded
+    - reader_first
+  must_not_be:
+    - generic
+    - fluffy
+    - overclaimed
+evidence_boundary:
+  must_cover:
+    - target audience and decision context
+    - at least three high-signal evidence objects
+    - explicit boundary and failure-mode discussion
+  nice_to_have: []
+  out_of_scope:
+    - unsupported claims without evidence

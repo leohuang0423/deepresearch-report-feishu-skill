@@ -1,0 +1,15 @@
+{
+  "id": "deepresearch-report-feishu-skill",
+  "name": "Deep Research Report Feishu Skill",
+  "description": "GitHub-first public release wrapper for the research-feishu-report-cocreate OpenClaw skill",
+  "version": "0.4.0",
+  "skills": [
+    "skills/openclaw"
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}
+

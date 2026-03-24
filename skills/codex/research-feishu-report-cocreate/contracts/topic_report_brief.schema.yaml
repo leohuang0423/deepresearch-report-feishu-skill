@@ -1,0 +1,104 @@
+title: topic_report_brief
+type: object
+additionalProperties: false
+required:
+  - audience
+  - decision_goal
+  - reader_after_reading
+  - deliverable
+  - quality_bar
+  - evidence_boundary
+properties:
+  audience:
+    type: object
+    additionalProperties: false
+    required:
+      - primary
+      - secondary
+    properties:
+      primary:
+        type: string
+        minLength: 8
+      secondary:
+        type: array
+        items:
+          type: string
+          minLength: 3
+  decision_goal:
+    type: string
+    minLength: 8
+  reader_after_reading:
+    type: string
+    minLength: 8
+  deliverable:
+    type: object
+    additionalProperties: false
+    required:
+      - kind
+      - layers
+      - tone
+    properties:
+      kind:
+        type: string
+        enum:
+          - single_report
+          - main_plus_appendix
+          - main_plus_subdocs
+          - feishu_doc_tree
+      layers:
+        type: array
+        minItems: 1
+        items:
+          type: string
+          minLength: 3
+      tone:
+        type: string
+        minLength: 3
+  quality_bar:
+    type: object
+    additionalProperties: false
+    required:
+      - target_level
+      - must_be
+      - must_not_be
+    properties:
+      target_level:
+        type: string
+        minLength: 3
+      must_be:
+        type: array
+        minItems: 3
+        items:
+          type: string
+          minLength: 3
+      must_not_be:
+        type: array
+        minItems: 1
+        items:
+          type: string
+          minLength: 3
+  evidence_boundary:
+    type: object
+    additionalProperties: false
+    required:
+      - must_cover
+      - nice_to_have
+      - out_of_scope
+    properties:
+      must_cover:
+        type: array
+        minItems: 3
+        items:
+          type: string
+          minLength: 3
+      nice_to_have:
+        type: array
+        items:
+          type: string
+          minLength: 3
+      out_of_scope:
+        type: array
+        minItems: 1
+        items:
+          type: string
+          minLength: 3

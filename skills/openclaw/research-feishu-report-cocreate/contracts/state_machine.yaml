@@ -1,0 +1,53 @@
+states:
+  - topic_report_brief
+  - research_question
+  - thesis_card
+  - reader_path
+  - evidence_map
+  - outline_freeze
+  - draft
+  - review_panel
+  - acceptance_panel
+  - publish
+  - qa
+  - done
+  - needs_user_brief
+  - needs_scope_refine
+  - needs_more_evidence
+  - needs_revision
+  - publish_blocked
+  - needs_user_reframe
+transitions:
+  topic_report_brief:
+    on_pass: research_question
+    on_fail: needs_user_brief
+  research_question:
+    on_pass: thesis_card
+    on_fail: needs_scope_refine
+  thesis_card:
+    on_pass: reader_path
+    on_fail: needs_scope_refine
+  reader_path:
+    on_pass: evidence_map
+    on_fail: needs_scope_refine
+  evidence_map:
+    on_pass: outline_freeze
+    on_fail: needs_more_evidence
+  outline_freeze:
+    on_pass: draft
+    on_fail: needs_more_evidence
+  draft:
+    on_pass: review_panel
+    on_fail: needs_revision
+  review_panel:
+    on_pass: acceptance_panel
+    on_fail: needs_revision
+  acceptance_panel:
+    on_pass: publish
+    on_fail: needs_revision
+  publish:
+    on_pass: qa
+    on_fail: publish_blocked
+  qa:
+    on_pass: done
+    on_fail: needs_revision

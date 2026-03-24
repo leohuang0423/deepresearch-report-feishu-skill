@@ -1,0 +1,25 @@
+documents:
+  - id: main
+    title: 01｜主报告：AIPM 如何与 CodingAgent 共创复杂研究
+    anchors:
+      - 起点
+      - 可复用工作流
+      - Skills / Tools 规格
+  - id: workflow
+    title: 02｜可复用工作流（v2）
+    anchors:
+      - 四阶段骨架
+      - 重型展开版
+  - id: specs
+    title: 03｜Skills / Tools 规格
+    anchors:
+      - coding-agent-research-cocreate
+      - multi-role-main-doc-review
+      - feishu-report-publish-qa
+links:
+  - from: main
+    to: workflow
+  - from: main
+    to: specs
+  - from: workflow
+    to: specs

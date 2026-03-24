@@ -1,0 +1,23 @@
+{
+  "name": "deepresearch-report-feishu-skill-marketplace",
+  "owner": {
+    "name": "Leo Huang",
+    "email": "leohuang0423@users.noreply.github.com"
+  },
+  "metadata": {
+    "description": "Deep research report skill marketplace for Claude Code",
+    "version": "0.4.0"
+  },
+  "plugins": [
+    {
+      "name": "deepresearch-report-feishu-skill",
+      "description": "Install the research-feishu-report-cocreate skill for Claude Code",
+      "source": "./",
+      "strict": false,
+      "skills": [
+        "./skills/claude/research-feishu-report-cocreate"
+      ]
+    }
+  ]
+}
+

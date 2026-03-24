@@ -1,0 +1,20 @@
+cases:
+  - id: repo_url_autoinstall_claude
+    title: Claude Code can infer install from repo URL
+    prompt: |
+      Use this GitHub repository URL, infer how to install the skill into Claude Code,
+      run the minimum validation described by the repository, and report the result.
+    expected:
+      - understands marketplace/plugin install path from repo metadata
+      - installs the Claude skill successfully
+      - reports a concise validation result to the end user
+  - id: repo_url_autoinstall_openclaw
+    title: OpenClaw can infer install from repo URL
+    prompt: |
+      Use this GitHub repository URL, infer how to install the skill into OpenClaw,
+      run the minimum validation described by the repository, and report the result.
+    expected:
+      - understands the repo skill/plugin-style install path
+      - installs the OpenClaw skill successfully
+      - reports a concise validation result to the end user
+

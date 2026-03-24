@@ -1,0 +1,18 @@
+query_id: ""
+finalist: false
+native_dossier:
+  status: pending
+  path: ""
+feishu_report:
+  status: pending
+  path: ""
+interactive_html_report:
+  status: pending
+  path: ""
+figure_assets:
+  source_dir: figures/src
+  publish_dir: figures/publish
+qa:
+  readback_passed: false
+  mobile_readability_passed: false
+  notes: []

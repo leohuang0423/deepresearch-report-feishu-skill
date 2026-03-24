@@ -1,0 +1,19 @@
+figures:
+  - id: core_judgment
+    type: decision_chart
+    purpose: clarify_the_main_judgment
+    source_sections: []
+    publish_required: true
+  - id: comparison_or_flow
+    type: comparison_timeline
+    purpose: compress_flow_or_comparison
+    source_sections: []
+    publish_required: true
+draft_rules:
+  allow_rough_sketch: true
+publish_rules:
+  final_mermaid_allowed: false
+  export_formats:
+    - svg
+    - png
+    - html

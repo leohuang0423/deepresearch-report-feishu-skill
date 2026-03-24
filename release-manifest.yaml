@@ -1,0 +1,26 @@
+name: deepresearch-report-feishu-skill
+version: 0.4.0
+release_slug: deepresearch-report-feishu-skill
+release_label: Deep Research Report Feishu Skill
+skill_slug: research-feishu-report-cocreate
+repo_owner: leohuang0423
+repo_name: deepresearch-report-feishu-skill
+repo_url: https://github.com/leohuang0423/deepresearch-report-feishu-skill
+visibility: public
+license: Apache-2.0
+platforms:
+  codex:
+    skill_path: skills/codex/research-feishu-report-cocreate
+    install_type: github_path
+  claude:
+    skill_path: skills/claude/research-feishu-report-cocreate
+    install_type: marketplace_plugin
+  openclaw:
+    skill_path: skills/openclaw/research-feishu-report-cocreate
+    install_type: repo_skill_or_plugin
+artifacts:
+  github_release_tgz: deepresearch-report-feishu-skill-v0.4.0.tgz
+source_bundle:
+  expected_local_name: v15_deepresearch_report_feishu_bundle
+  export_script: scripts/export_public_release.py
+

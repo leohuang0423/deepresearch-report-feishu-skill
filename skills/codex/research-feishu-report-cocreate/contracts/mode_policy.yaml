@@ -1,0 +1,45 @@
+modes:
+  light:
+    trigger:
+      max_evidence_objects: 1
+      requires_feishu_delivery: false
+      rework_cost: low
+    deliberation_budget:
+      expert_roles: 0
+      evidence_rounds: 1
+      outline_candidates: 1
+      review_rounds: 0
+      acceptance_rounds: 0
+  mid:
+    trigger:
+      max_evidence_objects: 3
+      requires_feishu_delivery: optional
+      rework_cost: medium
+    deliberation_budget:
+      expert_roles: 2
+      evidence_rounds: 2
+      outline_candidates: 2
+      review_rounds: 1
+      acceptance_rounds: 1
+  heavy_topic_report:
+    trigger:
+      requires_explicit_audience: true
+      requires_report_delivery: true
+      rework_cost: high
+      multi_source_evidence: true
+    deliberation_budget:
+      expert_roles: 4
+      evidence_rounds: 3
+      outline_candidates: 3
+      review_rounds: 2
+      acceptance_rounds: 2
+    required_panels:
+      - ideal_state_panel
+      - evidence_panel
+      - acceptance_panel
+    escalation_signals:
+      - thesis_not_hard_enough
+      - evidence_thin
+      - audience_unclear
+      - structure_drift
+      - overclaiming_risk

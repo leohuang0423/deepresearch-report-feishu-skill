@@ -1,0 +1,45 @@
+gates:
+  brief_gate:
+    required_for:
+      - heavy_topic_report
+    requires:
+      - topic_report_brief
+    fail_state: needs_user_brief
+    pass_to: research_question
+  pre_research_gate:
+    required_for:
+      - heavy_topic_report
+    requires:
+      - thesis_card
+      - reader_path
+      - research_question
+    fail_state: needs_scope_refine
+    pass_to: evidence_map
+  pre_draft_gate:
+    required_for:
+      - heavy_topic_report
+    requires:
+      - thesis_card
+      - reader_path
+      - evidence_map
+      - outline_freeze
+      - evidence_panel_result
+    fail_state: needs_more_evidence
+    pass_to: draft
+  post_draft_gate:
+    required_for:
+      - heavy_topic_report
+    requires:
+      - draft
+      - review_panel_result
+    fail_state: needs_revision
+    pass_to: acceptance_panel
+  publish_gate:
+    required_for:
+      - heavy_topic_report
+      - mid
+    requires:
+      - acceptance_panel_result
+      - publish_checklist
+    fail_state: publish_blocked
+    pass_to: publish

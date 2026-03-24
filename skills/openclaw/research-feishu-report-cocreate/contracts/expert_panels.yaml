@@ -1,0 +1,40 @@
+panels:
+  ideal_state_panel:
+    purpose:
+      - lock_audience
+      - lock_decision_goal
+      - lock_quality_bar
+    default_roles:
+      - target_reader_representative
+      - domain_expert
+      - research_editor
+      - workflow_designer
+    outputs:
+      - topic_report_brief
+      - thesis_card
+      - reader_path
+  evidence_panel:
+    purpose:
+      - challenge_source_density
+      - challenge_evidence_quality
+      - challenge_research_question_fit
+    default_roles:
+      - evidence_researcher
+      - domain_expert
+      - challenge_reviewer
+    outputs:
+      - evidence_gap_list
+      - evidence_depth_decision
+      - draft_permission
+  acceptance_panel:
+    purpose:
+      - score_final_quality
+      - decide_publish_or_revise
+    default_roles:
+      - target_reader_representative
+      - domain_ten_x_expert
+      - writing_structure_expert
+    outputs:
+      - scorecards
+      - top_revision_items
+      - pass_fail

@@ -1,0 +1,90 @@
+scale:
+  min: 0
+  max: 10
+  increment: 0.5
+pass_thresholds:
+  minimum_per_expert_average: 8.1
+  publish_delivery_minimum: 8.0
+dimensions:
+  - name: task_definition
+    label: 任务定义完整性
+    anchors:
+      "0": audience_goal_deliverable_missing
+      "5": task_exists_but_completion_and_constraints_are_blurry
+      "8": audience_goal_deliverable_completion_constraints_explicit
+      "10": task_definition_is_sharp_and_drives_the_whole_report
+  - name: thesis_strength
+    label: thesis 强度
+    anchors:
+      "0": no_real_thesis
+      "5": thesis_exists_but_is_generic_or_soft
+      "8": thesis_is_specific_debatable_and_useful
+      "10": thesis_is_sharp_original_and_structurally_drives_the_report
+  - name: evidence_depth
+    label: 证据深度与来源质量
+    anchors:
+      "0": shallow_or_sparse_evidence
+      "5": some_evidence_but_not_enough_to_support_key_claims
+      "8": evidence_is_sufficient_traceable_and_well_chosen
+      "10": evidence_is_deep_varied_and_drives_non-obvious_judgment
+  - name: reader_path
+    label: 结构与 reader path
+    anchors:
+      "0": hard_to_follow
+      "5": readable_but_structurally_uneven
+      "8": reading_path_is_clear_and_progressive
+      "10": structure_makes_complex_material_feel_inevitable
+  - name: insight_strength
+    label: insight 的新意与锋利度
+    anchors:
+      "0": generic_summary
+      "5": partly_useful_but_not_original
+      "8": insight_is_specific_reusable_and_harder_than_surface_summary
+      "10": insight_changes_how_a_good_reader_would_frame_the_problem
+  - name: foresight_grounding
+    label: foresight 的边界感与可落地性
+    anchors:
+      "0": speculative_or_hyped
+      "5": some_grounding_but_actionability_is_weak
+      "8": bounded_specific_and_plausibly_actionable
+      "10": grounded_in_evidence_with_clear_wedge_and_clear_limits
+  - name: method_actionability
+    label: 方法的可执行性
+    anchors:
+      "0": abstract_only
+      "5": partly_actionable
+      "8": can_be_reused_by_a_real_practitioner
+      "10": directly_usable_as_a_working_playbook
+  - name: style_density
+    label: 文风与信息密度
+    anchors:
+      "0": bloated_or_template_like
+      "5": readable_but_uneven_or_repetitive
+      "8": concise_dense_reader_first
+      "10": mature_sharp_and_economical_without_losing_depth
+  - name: delivery_integrity
+    label: 交付完整性
+    anchors:
+      "0": broken_delivery
+      "5": partial_navigation_or_layout_integrity
+      "8": delivery_complete_and_reliable
+      "10": delivery_polished_and_supports_real_use
+  - name: overall_professionalism
+    label: 整体专业度
+    anchors:
+      "0": not_publishable
+      "5": draft_quality
+      "8": expert_shareable
+      "10": top-tier_internal_report_quality
+hard_gates:
+  critical_dimensions_minimum:
+    - task_definition: 8.0
+    - thesis_strength: 8.0
+    - evidence_depth: 8.0
+    - reader_path: 8.0
+  publish_required_dimension:
+    delivery_integrity: 8.0
+hard_rules:
+  every_expert_total_must_be_gt: 8.0
+  max_revise_rounds: 3
+  failure_state_after_max_revise: needs_user_reframe

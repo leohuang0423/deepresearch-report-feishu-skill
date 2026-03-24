@@ -1,0 +1,4 @@
+interface:
+  display_name: "Deep Research Report Feishu"
+  short_description: "Creator-first 深度研究报告、结构化 dossier、重点图表表达与 Feishu/HTML 交付的生产级 skill"
+  default_prompt: "围绕一个专题做 creator-first 深度研究，形成非共识判断、读者友好主报告、结构化 dossier 与关键图表，并在需要时生成 Feishu 或 HTML 版本"

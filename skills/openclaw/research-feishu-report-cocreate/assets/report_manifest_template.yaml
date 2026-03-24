@@ -1,0 +1,26 @@
+task_mode: heavy_topic_report
+topic: ""
+audience:
+  primary: ""
+  secondary: []
+decision_goal: ""
+reader_after_reading: ""
+evidence_sources: []
+evidence_boundary:
+  must_cover: []
+  nice_to_have: []
+  out_of_scope: []
+deliverable:
+  kind: feishu_doc_tree
+  layers:
+    - main_report
+    - appendix
+  publish_required: true
+quality_bar: extreme_expert_shareable
+constraints: []
+gates:
+  brief_gate: pending
+  pre_research_gate: pending
+  pre_draft_gate: pending
+  post_draft_gate: pending
+  publish_gate: pending
