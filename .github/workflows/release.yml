@@ -1,0 +1,24 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python3 -m pip install pyyaml
+      - run: python3 scripts/validate_public_repo.py --repo-root .
+      - run: python3 scripts/run_install_smoke.py --repo-root .
+      - run: python3 scripts/package_release.py --repo-root .
+      - uses: softprops/action-gh-release@v2
+        with:
+          files: dist/*.tgz

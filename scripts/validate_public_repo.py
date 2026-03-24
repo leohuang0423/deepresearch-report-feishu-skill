@@ -16,11 +16,19 @@ TEXT_SUFFIXES = {".md", ".yaml", ".yml", ".json", ".txt"}
 REQUIRED_ROOT_FILES = (
     "README.md",
     "INSTALL.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
     "LICENSE",
     "release-manifest.yaml",
     ".claude-plugin/marketplace.json",
+    ".claude-plugin/plugin.json",
+    ".github/workflows/validate.yml",
+    ".github/workflows/release.yml",
+    "docs/RELEASE_ENGINEERING.md",
     "openclaw.plugin.json",
     "scripts/export_public_release.py",
+    "scripts/package_release.py",
+    "scripts/run_install_smoke.py",
     "scripts/validate_public_repo.py",
     "tests/public_validation_cases.yaml",
 )
@@ -115,4 +123,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

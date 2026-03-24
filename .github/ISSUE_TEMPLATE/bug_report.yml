@@ -1,0 +1,27 @@
+name: Bug report
+description: Report a public release bug or install problem
+title: "[bug] "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the bug, install problem, or broken path.
+    validations:
+      required: true
+  - type: input
+    id: platform
+    attributes:
+      label: Platform
+      description: Codex, Claude Code, or OpenClaw
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Reproduction
+      description: Include the exact install or validation command.
+    validations:
+      required: true
+

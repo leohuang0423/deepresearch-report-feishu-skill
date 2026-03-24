@@ -1,5 +1,12 @@
 # Install Guide
 
+## Minimum Validation
+
+```bash
+python3 scripts/validate_public_repo.py --repo-root .
+python3 scripts/run_install_smoke.py --repo-root .
+```
+
 ## English
 
 ### Codex
@@ -85,4 +92,3 @@ mkdir -p "${HOME}/.openclaw/skills"
 cp -R deepresearch-report-feishu-skill/skills/openclaw/research-feishu-report-cocreate "${HOME}/.openclaw/skills/"
 openclaw skills list | rg research-feishu-report-cocreate
 ```
-

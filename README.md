@@ -66,6 +66,7 @@ openclaw skills list | rg research-feishu-report-cocreate
 
 ```bash
 python3 scripts/validate_public_repo.py --repo-root .
+python3 scripts/run_install_smoke.py --repo-root .
 ```
 
 ### Repo Semantics
@@ -160,4 +161,3 @@ python3 scripts/validate_public_repo.py --repo-root .
 - agent 能把测试报告回给用户
 
 More detailed installation and release notes live in [INSTALL.md](./INSTALL.md).
-
