@@ -1,0 +1,41 @@
+{
+  "sections": {
+    "hero": {
+      "type": "service-hero",
+      "blocks": {
+        "stat1": { "type": "stat", "settings": { "value": "10 days", "label": "fixed-scope sprint" } },
+        "stat2": { "type": "stat", "settings": { "value": "1,000+", "label": "of your real conversations analyzed" } },
+        "stat3": { "type": "stat", "settings": { "value": "Before/after", "label": "eval report included" } }
+      },
+      "block_order": ["stat1", "stat2", "stat3"],
+      "settings": {
+        "heading": "Your AI agent is failing users. We find where, and fix it.",
+        "subheading": "A fixed-price 10-day sprint: we map your agent's failure modes from real traffic, ship the fixes, and prove the lift with before/after evals.",
+        "cta_label": "Book a diagnostic call",
+        "cta_note": "30 minutes. We review your agent live on the call."
+      }
+    },
+    "steps": {
+      "type": "how-it-works",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Ingest", "text": "You share API access and 1,000+ real conversations. Our pipeline clusters every failure into a 12-category taxonomy." } },
+        "s2": { "type": "step", "settings": { "title": "Diagnose", "text": "You get a ranked failure-mode map: what breaks, how often, and what it costs you." } },
+        "s3": { "type": "step", "settings": { "title": "Fix", "text": "We rewrite prompts, tool definitions and retrieval — delivered as a merge-ready improvement package." } },
+        "s4": { "type": "step", "settings": { "title": "Prove", "text": "Before/after evaluation on a held-out set, plus a regression suite you keep." } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"],
+      "settings": { "heading": "How the Audit Sprint works" }
+    },
+    "detail": {
+      "type": "rich-text",
+      "blocks": {
+        "h": { "type": "heading", "settings": { "heading": "Not ready for a sprint?" } },
+        "t": { "type": "text", "settings": { "text": "<p>Start with the $499 Mini Diagnostic: send 500 conversations, get a ranked failure-mode report in 5 business days. The full $499 credits toward a sprint within 30 days.</p>" } },
+        "b": { "type": "button", "settings": { "button_label": "Get the Mini Diagnostic", "button_link": "shopify://products/ai-agent-mini-diagnostic" } }
+      },
+      "block_order": ["h", "t", "b"],
+      "settings": { "desktop_content_position": "center", "content_alignment": "center" }
+    }
+  },
+  "order": ["hero", "steps", "detail"]
+}

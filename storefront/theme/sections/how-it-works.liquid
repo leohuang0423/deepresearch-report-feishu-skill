@@ -1,0 +1,45 @@
+{% comment %}
+  Numbered process steps. Used on the audit landing page; reusable anywhere.
+{% endcomment %}
+
+<div class="page-width section-{{ section.id }}-padding" style="padding-top: 32px; padding-bottom: 48px;">
+  {% if section.settings.heading != blank %}
+    <h2 class="h1" style="text-align: center; margin-bottom: 40px;">{{ section.settings.heading }}</h2>
+  {% endif %}
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; max-width: 1000px; margin: 0 auto;">
+    {% for block in section.blocks %}
+      <div {{ block.shopify_attributes }}>
+        <div class="h2" style="opacity: 0.35; margin-bottom: 8px;">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</div>
+        <h3 class="h4" style="margin: 0 0 8px;">{{ block.settings.title }}</h3>
+        <p style="margin: 0; opacity: 0.8;">{{ block.settings.text }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "How it works",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "How it works" }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Step title" },
+        { "type": "textarea", "id": "text", "label": "Text" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "How it works",
+      "blocks": [{ "type": "step" }, { "type": "step" }, { "type": "step" }, { "type": "step" }]
+    }
+  ]
+}
+{% endschema %}

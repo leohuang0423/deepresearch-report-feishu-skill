@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "preorder": {
+      "type": "preorder-banner",
+      "settings": {
+        "badge_text": "Pre-order",
+        "message_prefix": "Orders placed today ship by",
+        "ship_by_date": "SET A REAL DATE BEFORE PUBLISHING",
+        "refund_note": "Cancel for a full refund any time before your order ships."
+      }
+    },
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "title": { "type": "title", "settings": {} },
+        "price": { "type": "price", "settings": {} },
+        "variant_picker": { "type": "variant_picker", "settings": {} },
+        "quantity_selector": { "type": "quantity_selector", "settings": {} },
+        "buy_buttons": { "type": "buy_buttons", "settings": { "show_dynamic_checkout": true } },
+        "description": { "type": "description", "settings": {} }
+      },
+      "block_order": ["title", "price", "variant_picker", "quantity_selector", "buy_buttons", "description"],
+      "settings": {}
+    }
+  },
+  "order": ["preorder", "main"]
+}

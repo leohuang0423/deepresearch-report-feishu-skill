@@ -1,0 +1,38 @@
+{% comment %}
+  FTC Mail Order Rule compliance banner for pre-order products.
+  The ship-by date MUST be a real, honored date — see copy/b-line-presale.md.
+  Renders above the product on templates/product.preorder.json.
+{% endcomment %}
+
+<div class="page-width" style="padding-top: 20px;">
+  <div style="border: 2px solid {{ section.settings.accent_color }}; border-radius: 8px; padding: 14px 20px; display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap;">
+    <strong style="color: {{ section.settings.accent_color }}; text-transform: uppercase; letter-spacing: 0.05em;">
+      {{ section.settings.badge_text }}
+    </strong>
+    <span>
+      {{ section.settings.message_prefix }}
+      <strong>{{ section.settings.ship_by_date }}</strong>.
+      {{ section.settings.refund_note }}
+    </span>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Pre-order banner",
+  "tag": "section",
+  "settings": [
+    { "type": "text", "id": "badge_text", "label": "Badge", "default": "Pre-order" },
+    { "type": "text", "id": "message_prefix", "label": "Message prefix", "default": "Orders placed today ship by" },
+    {
+      "type": "text",
+      "id": "ship_by_date",
+      "label": "Ship-by date (REQUIRED — FTC Mail Order Rule: must be honored or proactively refunded)",
+      "default": "SET A REAL DATE BEFORE PUBLISHING"
+    },
+    { "type": "text", "id": "refund_note", "label": "Refund note", "default": "Cancel for a full refund any time before your order ships." },
+    { "type": "color", "id": "accent_color", "label": "Accent color", "default": "#b45309" }
+  ],
+  "presets": [{ "name": "Pre-order banner" }]
+}
+{% endschema %}
