@@ -1,0 +1,15 @@
+{
+  "name": "html-video-render-pipeline",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic HTML/CSS/JS -> MP4 render pipeline (headless Chromium frame capture + ffmpeg). Tests the 'coding agent writes HTML to make e-commerce ad videos' approach.",
+  "scripts": {
+    "render:ad": "node render.mjs --scene scenes/ecommerce-ad.html --out ../output/ecommerce-ad-1080x1920.mp4 --width 1080 --height 1920 --fps 30 --duration 15"
+  },
+  "dependencies": {
+    "@fontsource/noto-sans-sc": "^5.2.9",
+    "ffmpeg-static": "^5.3.0",
+    "puppeteer": "^25.1.0"
+  }
+}
