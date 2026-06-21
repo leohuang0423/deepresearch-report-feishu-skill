@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Coding Agent 写 HTML 做电商短视频 · 实测对比报告</title>
+<style>
+  :root{ --bg:#140816; --card:#221026; --line:#3a1d40; --gold:#f6d68a; --amber:#ffb24d; --coral:#ff7e5f;
+    --ink:#fff6ec; --mut:#c9a9bf; --good:#6fe0a8; --warn:#ff8b6b; }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{ background:radial-gradient(120% 60% at 50% -5%,#3a0f33,#140816 60%); color:var(--ink);
+    font-family:system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif; line-height:1.6; padding:40px 20px 80px; }
+  .wrap{ max-width:1080px; margin:0 auto; }
+  .eyebrow{ letter-spacing:6px; color:var(--gold); font-size:13px; text-transform:uppercase; }
+  h1{ font-size:38px; line-height:1.25; margin:10px 0 6px; }
+  h1 .grad{ background:linear-gradient(90deg,#ffd27e,#ff7e5f);-webkit-background-clip:text;background-clip:text;color:transparent }
+  .sub{ color:var(--mut); font-size:15px; margin-bottom:28px }
+  .verdict{ background:linear-gradient(135deg,rgba(255,178,77,.14),rgba(255,126,95,.08)); border:1px solid var(--line);
+    border-radius:18px; padding:22px 26px; margin:18px 0 34px; font-size:17px }
+  .verdict b{ color:var(--gold) }
+  h2{ font-size:24px; margin:40px 0 14px; padding-left:14px; border-left:4px solid var(--amber) }
+  .grid{ display:grid; gap:24px; grid-template-columns:340px 1fr; align-items:start }
+  @media(max-width:760px){ .grid{ grid-template-columns:1fr } }
+  video{ width:100%; border-radius:18px; border:1px solid var(--line); background:#000; box-shadow:0 20px 50px rgba(0,0,0,.5) }
+  .card{ background:var(--card); border:1px solid var(--line); border-radius:16px; padding:18px 20px }
+  .metrics{ list-style:none; display:grid; gap:10px }
+  .metrics li{ display:flex; gap:12px; align-items:flex-start; font-size:15px }
+  .metrics .k{ color:var(--mut); min-width:120px }
+  .metrics .v{ font-weight:600 }
+  .ok{ color:var(--good) } .cap{ color:var(--warn) }
+  .strip{ display:grid; grid-template-columns:repeat(6,1fr); gap:10px; margin-top:8px }
+  .strip figure{ margin:0 } .strip img{ width:100%; border-radius:10px; border:1px solid var(--line); display:block }
+  .strip figcaption{ font-size:12px; color:var(--mut); margin-top:6px; text-align:center }
+  table{ width:100%; border-collapse:collapse; font-size:14.5px; margin-top:10px; overflow:hidden; border-radius:12px }
+  th,td{ padding:11px 12px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top }
+  thead th{ background:#2a1330; color:var(--gold); font-weight:700 }
+  td.c,th.c{ text-align:center }
+  .scoreA{ color:var(--good); font-weight:800 } .scoreB{ color:var(--amber); font-weight:800 }
+  .win{ display:inline-block; padding:2px 10px; border-radius:999px; font-size:12px; font-weight:700 }
+  .winA{ background:rgba(111,224,168,.18); color:var(--good) } .winB{ background:rgba(255,178,77,.18); color:var(--amber) }
+  .two{ display:grid; grid-template-columns:1fr 1fr; gap:18px } @media(max-width:760px){ .two{grid-template-columns:1fr} }
+  .big{ font-size:40px; font-weight:900 } .big.a{ color:var(--good) } .big.b{ color:var(--amber) }
+  ol,ul{ padding-left:22px } li{ margin:6px 0 }
+  code{ background:#2a1330; padding:2px 7px; border-radius:6px; font-size:13px; color:#ffd9b0 }
+  pre{ background:#0f060f; border:1px solid var(--line); border-radius:12px; padding:16px; overflow:auto; font-size:13px; color:#ffe9d6 }
+  .note{ font-size:13px; color:var(--mut); border-top:1px dashed var(--line); margin-top:16px; padding-top:12px }
+  a{ color:var(--amber) }
+  .pill{ display:inline-block; padding:3px 10px; border:1px solid var(--line); border-radius:999px; font-size:12px; color:var(--mut); margin:2px 4px 2px 0 }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Research · Real Test</div>
+  <h1>用 Coding Agent 写 HTML 做电商短视频，<span class="grad">到底行不行？</span></h1>
+  <div class="sub">与「图生视频 agent 工作流」的可复现实测对比 · Claude Code 自主完成 · 2026-06-19</div>
+
+  <div class="verdict">
+    <b>结论：</b>行。在<b>带货型电商短视频</b>里，coding agent 写 HTML/CSS/JS 直出视频的路线，
+    在信息准确、可控、成本、可批量上整体优于图生视频；在<b>要实拍质感的品牌片</b>里图生视频反超。
+    下方这支 9:16 成片，就是本次<b>真的渲染出来</b>的产物（非示意）。
+  </div>
+
+  <h2>① 真实产物：本次渲染的成片</h2>
+  <div class="grid">
+    <video controls playsinline poster="../output/ecommerce-ad-1080x1920-poster.jpg">
+      <source src="../output/ecommerce-ad-1080x1920-with-audio.mp4" type="video/mp4" />
+      你的浏览器不支持内嵌视频，请直接打开 output/ 下的 MP4。
+    </video>
+    <div class="card">
+      <ul class="metrics">
+        <li><span class="k">规格</span><span class="v">1080×1920 · 30fps · 15.00s · H.264</span></li>
+        <li><span class="k">体积</span><span class="v">≈3.2MB（无声母版）</span></li>
+        <li><span class="k">出片方式</span><span class="v">HTML→Puppeteer 逐帧→ffmpeg</span></li>
+        <li><span class="k">一次渲染</span><span class="v">450 帧 ≈ 7 分钟 · <span class="ok">0 API 费</span></span></li>
+        <li><span class="k">文字/价格</span><span class="v ok">逐字像素级精确（¥199→¥149）</span></li>
+        <li><span class="k">可复现性</span><span class="v ok">同输入逐帧 bit 级一致</span></li>
+        <li><span class="k">产品瓶</span><span class="v">纯代码绘制 · 全程零漂移</span></li>
+        <li><span class="k">字体</span><span class="v">Noto Sans SC（项目自带）</span></li>
+      </ul>
+      <div class="note">两个版本在 <code>output/</code>：无声母版（投放时配热门音轨）+ 含程序化背景乐的预览版。</div>
+    </div>
+  </div>
+
+  <h2>② 六段分镜（关键帧）</h2>
+  <div class="strip">
+    <figure><img src="../assets/frames/scene-1.jpg" alt=""><figcaption>钩子 · 品牌</figcaption></figure>
+    <figure><img src="../assets/frames/scene-2.jpg" alt=""><figcaption>痛点</figcaption></figure>
+    <figure><img src="../assets/frames/scene-3.jpg" alt=""><figcaption>产品主秀</figcaption></figure>
+    <figure><img src="../assets/frames/scene-4.jpg" alt=""><figcaption>功效实证</figcaption></figure>
+    <figure><img src="../assets/frames/scene-5.jpg" alt=""><figcaption>口碑</figcaption></figure>
+    <figure><img src="../assets/frames/scene-6.jpg" alt=""><figcaption>促销 + CTA</figcaption></figure>
+  </div>
+
+  <h2>③ 对比结论：换用途，结论会翻转</h2>
+  <div class="two">
+    <div class="card">
+      <div class="pill">带货 / 转化信息流广告</div>
+      <p style="margin-top:8px">重「信息准确 · 可控 · 成本 · 规模」</p>
+      <p><span class="big a">4.34</span> &nbsp;HTML/代码 &nbsp; <span class="win winA">胜</span></p>
+      <p style="color:var(--mut)">图生视频 AI：3.29 / 5</p>
+    </div>
+    <div class="card">
+      <div class="pill">品牌故事 / 实拍质感 TVC</div>
+      <p style="margin-top:8px">重「真实感 · 情绪 · 原生音画」</p>
+      <p><span class="big b">3.76</span> &nbsp;图生视频 AI &nbsp; <span class="win winB">胜</span></p>
+      <p style="color:var(--mut)">HTML/代码：3.68 / 5</p>
+    </div>
+  </div>
+
+  <h2>④ 10 维评分卡（1–5 分）</h2>
+  <table>
+    <thead><tr><th>维度</th><th class="c">权重</th><th class="c">HTML/代码</th><th class="c">图生视频 AI</th></tr></thead>
+    <tbody>
+      <tr><td>文字/价格/品牌逐字准确</td><td class="c">15</td><td class="c scoreA">5</td><td class="c">3</td></tr>
+      <tr><td>产品还原与时序一致性</td><td class="c">12</td><td class="c scoreA">4</td><td class="c">3</td></tr>
+      <tr><td>创意可控性 / 精确可编辑</td><td class="c">12</td><td class="c scoreA">5</td><td class="c">3</td></tr>
+      <tr><td>可复现性 / 确定性</td><td class="c">8</td><td class="c scoreA">5</td><td class="c">2</td></tr>
+      <tr><td>批量与个性化规模</td><td class="c">10</td><td class="c scoreA">5</td><td class="c">3</td></tr>
+      <tr><td>单条成本</td><td class="c">10</td><td class="c scoreA">5</td><td class="c">3</td></tr>
+      <tr><td>出片 / 迭代速度</td><td class="c">8</td><td class="c scoreA">4</td><td class="c scoreB">4</td></tr>
+      <tr><td>真实感 / 实拍质感 / 物理</td><td class="c">12</td><td class="c">2</td><td class="c scoreB">5</td></tr>
+      <tr><td>原生音频 / 口播</td><td class="c">5</td><td class="c">3</td><td class="c scoreB">4</td></tr>
+      <tr><td>合规 / 版权 / 可审计</td><td class="c">8</td><td class="c scoreA">5</td><td class="c">3</td></tr>
+    </tbody>
+  </table>
+  <div class="note">完整依据、客观指标表与方法学见 <code>report/comparison-scorecard.md</code>；
+  HTML 侧多项为本仓库<b>实测</b>，图生视频侧为 2026 公开资料 + 范式特性判断（未在本环境实跑，见下方诚实声明）。</div>
+
+  <h2>⑤ 推荐：生产级混合工作流</h2>
+  <ol>
+    <li><b>AI 生成"难拍的料"</b>：实拍质感 b-roll、模特上脸、质地特写、氛围镜头。</li>
+    <li><b>coding agent 当合成 + 信息层</b>：用 HTML/CSS/JS（或 Remotion）把片段 + 真实产品图 +
+      <b>逐字准确</b>的价格/卖点/CTA/字幕合成成片——信息层绝不交给生成模型写字。</li>
+    <li><b>数据驱动批量</b>：价格/赠品/语言/话术抽成参数表，一套模板批量出千条变体。</li>
+    <li><b>确定性收尾</b>：合成与字幕在代码侧完成 → 可复现、可审计、投放零事故。</li>
+  </ol>
+  <p style="font-size:18px;margin-top:10px"><b>一句话：让 AI 负责「像真的」，让代码负责「准且多」。</b></p>
+
+  <h2>⑥ 自己复现 / 补齐对比</h2>
+  <pre>cd research/coding-agent-html-video/pipeline
+npm install            # puppeteer + ffmpeg-static
+npm run render:ad      # -> ../output/ecommerce-ad-1080x1920.mp4
+node preview.mjs scenes/ecommerce-ad.html "1.2,3.6,6.5,9.8,11.9,14.2"   # 看关键帧</pre>
+  <p>B 组（图生视频）：把 <code>assets/shared-brief.md</code> 第 5 节的 prompt 包贴给 Sora/Veo/Kling/Runway/即梦，
+  产出后用同一张评分卡的客观指标表回填，即得你环境下的对称结论。</p>
+
+  <div class="note">
+    <b>诚实声明：</b>HTML/代码一侧是<b>真实渲染产物</b>（可逐帧核验）。图生视频一侧因本容器无 API 密钥、
+    出网受白名单限制而<b>未实跑</b>，分数基于 2026 公开评测 + 范式特性；模型版本/价格变动快，采购前请再核。
+    参考：Remotion 官网、vexub / digen.ai / lushbinary / aimlapi / Kling AI 等 2026 评测（详见 REPORT.md 参考文献）。
+  </div>
+</div>
+</body>
+</html>
