@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<title>猫砂垫避坑测评 · 小红书攻略</title>
+<style>
+  @font-face{font-family:'NotoSC';font-weight:400;font-display:block;
+    src:url('../lib/fonts/noto-sans-sc-chinese-simplified-400-normal.woff2') format('woff2'),
+        url('../lib/fonts/noto-sans-sc-latin-400-normal.woff2') format('woff2');}
+  @font-face{font-family:'NotoSC';font-weight:500;font-display:block;
+    src:url('../lib/fonts/noto-sans-sc-chinese-simplified-500-normal.woff2') format('woff2'),
+        url('../lib/fonts/noto-sans-sc-latin-500-normal.woff2') format('woff2');}
+  @font-face{font-family:'NotoSC';font-weight:700;font-display:block;
+    src:url('../lib/fonts/noto-sans-sc-chinese-simplified-700-normal.woff2') format('woff2'),
+        url('../lib/fonts/noto-sans-sc-latin-700-normal.woff2') format('woff2');}
+  @font-face{font-family:'NotoSC';font-weight:900;font-display:block;
+    src:url('../lib/fonts/noto-sans-sc-chinese-simplified-900-normal.woff2') format('woff2'),
+        url('../lib/fonts/noto-sans-sc-latin-900-normal.woff2') format('woff2');}
+
+  :root{
+    --cream:#FBF4EA; --paper:#FFFDF9; --ink:#403A34; --ink2:#8A7C6E; --line:#EADFCD;
+    --terra:#D98E63; --terraD:#C0703F; --sage:#8FA68A; --rose:#E0A9A0; --gold:#E0AE5A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{width:1080px;height:1440px;overflow:hidden;background:var(--cream)}
+  #stage{position:relative;width:1080px;height:1440px;overflow:hidden;font-family:'NotoSC',sans-serif;color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(120% 70% at 50% 0%, #FFF8EC 0%, #FBF4EA 55%, #F3E9D6 100%);}
+  .layer{position:absolute;inset:0}
+
+  /* paper texture (very subtle) */
+  #paper{position:absolute;inset:0;opacity:.5;pointer-events:none;mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2'/><feColorMatrix type='saturate' values='0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/></svg>");}
+
+  /* top handle bar */
+  #top{position:absolute;top:48px;left:60px;right:60px;display:flex;align-items:center;gap:18px;z-index:5}
+  #ava{width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,#F0C9A8,#D98E63);
+    display:flex;align-items:center;justify-content:center;font-size:38px;box-shadow:0 4px 12px rgba(192,112,63,.25)}
+  #who b{font-size:32px;font-weight:700}
+  #who span{display:block;font-size:23px;color:var(--ink2);margin-top:2px}
+  #tag{margin-left:auto;font-size:24px;font-weight:700;color:var(--terraD);
+    background:#F6E7D6;border:1px solid #EAD3BC;padding:9px 20px;border-radius:999px}
+
+  /* card slots */
+  .slot{position:absolute;left:60px;right:60px;top:170px;bottom:230px;display:flex;flex-direction:column;
+    align-items:center;justify-content:flex-start;text-align:center;will-change:opacity,transform}
+  .art{width:560px;height:430px;margin-top:6px;display:flex;align-items:center;justify-content:center}
+  .art svg{width:100%;height:100%;overflow:visible}
+  .kicker{margin-top:6px;font-size:27px;font-weight:700;letter-spacing:3px;color:var(--terraD);
+    background:#F6E7D6;padding:8px 22px;border-radius:999px}
+  .title{margin-top:24px;font-size:62px;line-height:1.22;font-weight:900;max-width:920px}
+  .title .hl{color:var(--terraD)}
+  .body{margin-top:30px;display:flex;flex-direction:column;gap:18px;align-items:stretch;width:840px}
+  .body .li{font-size:38px;font-weight:500;line-height:1.4;color:#4a443d;
+    background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px 26px;
+    box-shadow:0 6px 16px rgba(150,120,80,.06);text-align:left}
+  .body .li b{color:var(--terraD);font-weight:700}
+  .body.plain .li{background:transparent;border:none;box-shadow:none;padding:6px 0;font-size:40px}
+
+  /* subtitle */
+  #subbar{position:absolute;left:90px;right:90px;bottom:120px;z-index:6;text-align:center}
+  #sub{display:inline-block;font-size:34px;font-weight:500;line-height:1.4;color:#fff;
+    background:rgba(64,58,52,.86);padding:14px 30px;border-radius:18px;max-width:900px;
+    box-shadow:0 8px 22px rgba(0,0,0,.18)}
+
+  /* progress + chapter dots */
+  #prog{position:absolute;left:60px;right:60px;bottom:66px;height:7px;border-radius:4px;background:#EADFCD;z-index:5}
+  #progf{height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#E0AE5A,#D98E63)}
+  #chap{position:absolute;right:60px;bottom:84px;font-size:24px;color:var(--ink2);z-index:5;font-weight:700}
+
+  .footnote{font-size:24px;color:var(--ink2);margin-top:18px}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="top">
+    <div id="ava">🐱</div>
+    <div id="who"><b>租房养猫日记</b><span>真实测评 · 不恰饭</span></div>
+    <div id="tag">避坑测评</div>
+  </div>
+
+  <div class="slot" id="slotA"></div>
+  <div class="slot" id="slotB"></div>
+
+  <div id="subbar"><div id="sub"></div></div>
+  <div id="prog"><div id="progf"></div></div>
+  <div id="chap"></div>
+  <div id="paper"></div>
+</div>
+
+<script>
+/* ---------- deterministic helpers ---------- */
+var clamp=function(x,a,b){a=(a==null?0:a);b=(b==null?1:b);return Math.min(b,Math.max(a,x));};
+var lerp=function(a,b,t){return a+(b-a)*t;};
+var win=function(t,s,e){return clamp((t-s)/(e-s));};
+var eOut=function(t){return 1-Math.pow(1-t,3);};       // easeOutCubic
+var eOutS=function(t){return 1-Math.pow(1-t,2);};      // softer
+
+/* ---------- line-art illustrations (schematic, editorial) ---------- */
+var S='stroke="#C0703F" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"';
+var S2='stroke="#8FA68A" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"';
+var FILLt='fill="#F0C9A8"'; var FILLs='fill="#D9E2D5"'; var SAND='fill="#E0AE5A"';
+function paw(cx,cy,s){s=s||1;return '<g transform="translate('+cx+','+cy+') scale('+s+')">'+
+  '<ellipse cx="0" cy="6" rx="20" ry="16" '+FILLt+'/>'+
+  '<circle cx="-18" cy="-14" r="7" '+FILLt+'/><circle cx="-6" cy="-22" r="7" '+FILLt+'/>'+
+  '<circle cx="8" cy="-22" r="7" '+FILLt+'/><circle cx="19" cy="-13" r="7" '+FILLt+'/></g>';}
+function sand(pts){var o='';for(var i=0;i<pts.length;i++){o+='<circle cx="'+pts[i][0]+'" cy="'+pts[i][1]+'" r="'+(pts[i][2]||4)+'" '+SAND+'/>';}return o;}
+
+var ART={
+ scatter:'<svg viewBox="0 0 400 300">'+
+   '<rect x="70" y="60" width="170" height="120" rx="20" '+FILLs+' stroke="#8FA68A" stroke-width="5"/>'+
+   '<path d="M70 110 h170" '+S2+'/>'+
+   paw(300,90,1.1)+
+   sand([[60,230,6],[110,250,5],[170,235,7],[230,255,5],[290,240,6],[340,225,5],[150,200,4],[260,210,4],[330,260,6]])+
+   '<path d="M280 150 q20 30 50 40" '+S+' stroke-dasharray="2 12"/>'+
+   '</svg>',
+ checklist:'<svg viewBox="0 0 400 300">'+
+   '<rect x="60" y="40" width="280" height="220" rx="22" fill="#FFFDF9" stroke="#EADFCD" stroke-width="5"/>'+
+   '<g '+S+'>'+
+   '<circle cx="100" cy="92" r="20"/><path d="M91 92 l7 8 14 -16"/>'+
+   '<circle cx="100" cy="150" r="20"/><path d="M91 150 l7 8 14 -16"/>'+
+   '<circle cx="100" cy="208" r="20"/><path d="M91 208 l7 8 14 -16"/>'+
+   '<path d="M140 92 h150 M140 150 h150 M140 208 h120"/></g></svg>',
+ persona:'<svg viewBox="0 0 400 300">'+
+   '<rect x="40" y="70" width="120" height="100" rx="16" '+FILLs+' stroke="#8FA68A" stroke-width="5"/>'+
+   '<path d="M40 110 h120" '+S2+'/>'+
+   '<rect x="200" y="50" width="90" height="160" rx="10" fill="none" stroke="#C0703F" stroke-width="5"/>'+
+   '<circle cx="278" cy="135" r="6" '+FILLt+'/>'+
+   '<path d="M310 210 h60 M310 230 h60 M310 250 h40" '+S+'/>'+
+   paw(120,240,0.9)+'</svg>',
+ holes:'<svg viewBox="0 0 400 300">'+
+   '<rect x="50" y="70" width="140" height="150" rx="16" fill="#FFFDF9" stroke="#C0703F" stroke-width="5"/>'+
+   '<g '+SAND+'><circle cx="80" cy="100" r="13"/><circle cx="120" cy="100" r="13"/><circle cx="160" cy="100" r="13"/><circle cx="80" cy="145" r="13"/><circle cx="120" cy="145" r="13"/><circle cx="160" cy="145" r="13"/></g>'+
+   '<text x="120" y="255" font-size="22" fill="#8A7C6E" text-anchor="middle" font-family="NotoSC">大孔·细砂漏地</text>'+
+   '<rect x="220" y="70" width="140" height="150" rx="16" fill="#FFFDF9" stroke="#8FA68A" stroke-width="5"/>'+
+   '<g '+S2+' stroke-width="3">'+
+   '<path d="M232 86 h116 M232 102 h116 M232 118 h116 M232 134 h116 M232 150 h116 M232 166 h116 M232 182 h116 M232 198 h116"/></g>'+
+   '<text x="290" y="255" font-size="22" fill="#8A7C6E" text-anchor="middle" font-family="NotoSC">细密·接住细砂</text></svg>',
+ doublelayer:'<svg viewBox="0 0 400 300">'+
+   '<rect x="60" y="70" width="280" height="44" rx="10" fill="#FFFDF9" stroke="#C0703F" stroke-width="5"/>'+
+   '<g stroke="#C0703F" stroke-width="3"><path d="M80 70 v44 M110 70 v44 M140 70 v44 M170 70 v44 M200 70 v44 M230 70 v44 M260 70 v44 M290 70 v44 M320 70 v44"/></g>'+
+   '<rect x="60" y="150" width="280" height="70" rx="14" '+FILLs+' stroke="#8FA68A" stroke-width="5"/>'+
+   sand([[90,185,6],[130,200,5],[170,188,6],[210,202,5],[250,186,6],[290,200,5],[310,190,5]])+
+   '<g '+S+' stroke-dasharray="2 10"><path d="M120 116 v28 M200 116 v28 M280 116 v28"/></g>'+
+   '<text x="350" y="98" font-size="20" fill="#C0703F" text-anchor="end" font-family="NotoSC">上层筛</text>'+
+   '<text x="350" y="244" font-size="20" fill="#8FA68A" text-anchor="end" font-family="NotoSC">夹层存</text></svg>',
+ eva:'<svg viewBox="0 0 400 300">'+
+   '<rect x="70" y="90" width="260" height="120" rx="22" '+FILLt+' stroke="#C0703F" stroke-width="5"/>'+
+   '<g stroke="#C0703F" stroke-width="3" opacity=".7"><path d="M110 90 v120 M150 90 v120 M190 90 v120 M230 90 v120 M270 90 v120"/></g>'+
+   sand([[128,150,5],[168,165,5],[208,140,5],[248,160,5],[288,150,5]])+
+   paw(200,60,0.9)+
+   '<text x="200" y="255" font-size="23" fill="#8A7C6E" text-anchor="middle" font-family="NotoSC">软·舒服 / 砂卡缝难洗</text></svg>',
+ pvc:'<svg viewBox="0 0 400 300">'+
+   '<rect x="70" y="120" width="260" height="90" rx="16" fill="#E7EEF2" stroke="#8FA68A" stroke-width="5"/>'+
+   '<g '+S2+'><path d="M150 50 q-6 22 0 34 M200 44 q-6 22 0 34 M250 50 q-6 22 0 34"/></g>'+
+   '<g fill="#9BC0D6"><circle cx="150" cy="100" r="6"/><circle cx="200" cy="96" r="6"/><circle cx="250" cy="100" r="6"/></g>'+
+   '<text x="200" y="255" font-size="23" fill="#8A7C6E" text-anchor="middle" font-family="NotoSC">硬·整片水冲晾得快</text></svg>',
+ smell:'<svg viewBox="0 0 400 300">'+
+   '<rect x="120" y="120" width="160" height="90" rx="16" '+FILLt+' stroke="#C0703F" stroke-width="5"/>'+
+   '<g stroke="#C0703F" stroke-width="4" fill="none" stroke-linecap="round"><path d="M170 60 q-10 26 0 50 M210 50 q-10 26 0 50 M250 60 q-10 26 0 50"/></g>'+
+   '<circle cx="200" cy="150" r="44" fill="none" stroke="#C0392B" stroke-width="7"/>'+
+   '<path d="M170 180 l60 -60" stroke="#C0392B" stroke-width="7" stroke-linecap="round"/>'+
+   '<text x="200" y="258" font-size="23" fill="#8A7C6E" text-anchor="middle" font-family="NotoSC">刺鼻味=直接退</text></svg>',
+ antislip:'<svg viewBox="0 0 400 300">'+
+   '<rect x="60" y="80" width="120" height="150" rx="14" fill="#FFFDF9" stroke="#C0703F" stroke-width="5"/>'+
+   '<path d="M70 250 q60 20 110 0" stroke="#D98E63" stroke-width="6" fill="none"/>'+
+   '<path d="M150 150 l60 0 m-16 -14 l16 14 -16 14" stroke="#C0392B" stroke-width="6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>'+
+   '<rect x="230" y="80" width="120" height="150" rx="14" '+FILLs+' stroke="#8FA68A" stroke-width="5"/>'+
+   '<g fill="#8FA68A"><circle cx="250" cy="100" r="5"/><circle cx="275" cy="100" r="5"/><circle cx="300" cy="100" r="5"/><circle cx="325" cy="100" r="5"/><circle cx="250" cy="130" r="5"/><circle cx="275" cy="130" r="5"/><circle cx="300" cy="130" r="5"/><circle cx="325" cy="130" r="5"/><circle cx="250" cy="160" r="5"/><circle cx="300" cy="160" r="5"/><circle cx="325" cy="160" r="5"/><circle cx="275" cy="160" r="5"/></g>'+
+   '<text x="120" y="280" font-size="20" fill="#C0392B" text-anchor="middle" font-family="NotoSC">无防滑·乱跑</text>'+
+   '<text x="290" y="280" font-size="20" fill="#8FA68A" text-anchor="middle" font-family="NotoSC">整片防滑</text></svg>',
+ size:'<svg viewBox="0 0 400 300">'+
+   '<rect x="80" y="90" width="240" height="130" rx="16" '+FILLs+' stroke="#8FA68A" stroke-width="5"/>'+
+   '<path d="M80 250 h240 M80 240 v20 M320 240 v20" '+S+'/>'+
+   '<text x="200" y="278" font-size="24" fill="#C0703F" text-anchor="middle" font-family="NotoSC">盖住出盆落脚区</text>'+
+   '<path d="M340 90 v130 M330 90 h20 M330 220 h20" '+S2+'/>'+
+   paw(150,150,1)+paw(240,150,1)+'</svg>',
+ placement:'<svg viewBox="0 0 400 300">'+
+   '<rect x="150" y="70" width="120" height="120" rx="14" '+FILLs+' stroke="#8FA68A" stroke-width="5"/>'+
+   '<text x="210" y="138" font-size="22" fill="#8FA68A" text-anchor="middle" font-family="NotoSC">砂盆</text>'+
+   '<path d="M120 70 h170 v40 h-40 v110 h-130 z" fill="#F0C9A8" opacity=".55" stroke="#C0703F" stroke-width="5" stroke-linejoin="round"/>'+
+   '<text x="170" y="240" font-size="22" fill="#C0703F" text-anchor="middle" font-family="NotoSC">L型半包围</text>'+
+   '<path d="M330 60 v80" stroke="#8A7C6E" stroke-width="5" stroke-linecap="round"/><circle cx="340" cy="100" r="4" fill="#8A7C6E"/>'+
+   '<text x="345" y="160" font-size="18" fill="#8A7C6E" font-family="NotoSC">门</text></svg>',
+ routine:'<svg viewBox="0 0 400 300">'+
+   '<circle cx="200" cy="150" r="92" fill="none" stroke="#E0AE5A" stroke-width="6" stroke-dasharray="6 14"/>'+
+   '<path d="M285 130 a92 92 0 0 1 -10 70" fill="none" stroke="#D98E63" stroke-width="8" stroke-linecap="round"/>'+
+   '<path d="M276 188 l4 22 18 -10" fill="none" stroke="#D98E63" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>'+
+   '<text x="200" y="135" font-size="26" fill="#403A34" text-anchor="middle" font-family="NotoSC" font-weight="700">一周抖</text>'+
+   '<text x="200" y="178" font-size="26" fill="#403A34" text-anchor="middle" font-family="NotoSC" font-weight="700">月底冲</text>'+
+   paw(200,260,0.8)+'</svg>',
+ params:'<svg viewBox="0 0 400 300">'+
+   '<rect x="70" y="50" width="260" height="210" rx="18" fill="#FFFDF9" stroke="#EADFCD" stroke-width="5"/>'+
+   '<path d="M70 96 h260" stroke="#EADFCD" stroke-width="4"/>'+
+   '<circle cx="100" cy="73" r="9" fill="#D98E63"/><circle cx="128" cy="73" r="9" fill="#E0AE5A"/><circle cx="156" cy="73" r="9" fill="#8FA68A"/>'+
+   '<g '+S+' stroke-width="4"><path d="M100 130 h60"/><path d="M100 165 h180"/><path d="M100 200 h140"/><path d="M100 235 h170"/></g>'+
+   '<g fill="#C0703F"><circle cx="92" cy="130" r="5"/><circle cx="92" cy="165" r="5"/><circle cx="92" cy="200" r="5"/><circle cx="92" cy="235" r="5"/></g></svg>',
+ cheat:'<svg viewBox="0 0 400 300">'+
+   '<rect x="76" y="56" width="248" height="200" rx="16" fill="#FFF7E8" stroke="#E0AE5A" stroke-width="5"/>'+
+   '<path d="M120 56 v200" stroke="#E0AE5A" stroke-width="3" stroke-dasharray="3 8"/>'+
+   '<g '+S2+' stroke-width="4"><path d="M150 100 h140 M150 145 h140 M150 190 h120"/></g>'+
+   '<g fill="#D98E63"><circle cx="100" cy="100" r="6"/><circle cx="100" cy="145" r="6"/><circle cx="100" cy="190" r="6"/></g>'+
+   paw(300,235,0.7)+'</svg>',
+ endcard:'<svg viewBox="0 0 400 300">'+
+   paw(200,120,2.0)+
+   '<rect x="110" y="190" width="180" height="56" rx="28" fill="#D98E63"/>'+
+   '<text x="200" y="226" font-size="26" fill="#fff" text-anchor="middle" font-family="NotoSC" font-weight="700">同款参数↓</text>'+
+   '</svg>'
+};
+
+/* ---------- timeline data (durations in seconds) ---------- */
+var OVL=0.30; // crossfade overlap
+var SEG=[
+ {d:9, art:'scatter', kicker:'养猫第2年 · 踩坑记录', title:'最坑的不是猫砂盆，<span class="hl">是猫砂垫</span>',
+   body:['满屋找细砂、夜里光脚中招','换了4款才搞明白怎么选'], sub:'养猫两年，踩过最坑的小物，其实是猫砂垫。', plain:true},
+ {d:10, art:'persona', kicker:'这篇适合谁', title:'先<span class="hl">对号入座</span>再往下看',
+   body:['开放式 / 敞开式猫砂盆','砂盆放玄关、过道','木地板、浅色地板、爱光脚','小户型，动线绕不开砂盆'], sub:'如果你是这几种情况，这篇就是写给你的。'},
+ {d:12, art:'checklist', kicker:'先记结论', title:'选垫只看<span class="hl">这4点</span>，别看颜值',
+   body:['① 收集力：看网孔结构','② 防移位：看背面防滑','③ 好清理：看材质','④ 尺寸动线：盖住落脚区'], sub:'选猫砂垫只看这四点，颜值反而最不重要。'},
+ {d:11, art:'holes', kicker:'误区 ①  网孔', title:'大蜂窝孔<span class="hl">≠</span>收集力强',
+   body:['带出来的多是脚缝里的细砂','孔太大，细砂直接漏到地上','有用的是上层细密+下层储砂'], sub:'孔不是越大越好，真正的元凶是脚缝里的细砂。'},
+ {d:11, art:'doublelayer', kicker:'误区 ①  网孔', title:'双层结构<span class="hl">到底怎么起作用</span>',
+   body:['上层网孔筛掉脚缝细砂','落进夹层，不再被带着走','一周拎起来抖回盆里就行'], sub:'双层的意义是先接住、再倒回，而不是好看。'},
+ {d:11, art:'eva', kicker:'误区 ②  材质', title:'EVA软垫：踩着舒服，<span class="hl">但卡砂</span>',
+   body:['猫爱踩、脚感软是真的','缺点：细砂卡缝、不好水洗','猫毛粘上层也难清'], sub:'EVA舒服是真的，难洗也是真的，看你更在意哪个。'},
+ {d:11, art:'pvc', kicker:'误区 ②  材质', title:'硅胶/PVC：好冲洗，<span class="hl">但偏硬</span>',
+   body:['可整片水冲、晾干快','部分猫不爱踩偏硬的','怕脏选硅胶，怕猫嫌选软垫'], sub:'想省事就硅胶可水冲，想猫舒服就软EVA。'},
+ {d:10, art:'smell', kicker:'误区 ②  材质', title:'最容易忽略：<span class="hl">材质气味</span>',
+   body:['三无EVA可能有刺鼻味','到手先晾两天再凑近闻','认准无异味 / 食品级描述'], sub:'到手有刺鼻味的，别犹豫直接退，别给猫用。'},
+ {d:11, art:'antislip', kicker:'误区 ③  防移位', title:'抓地差，垫子<span class="hl">全屋乱跑</span>',
+   body:['猫一蹬就移位、掀角','看背面：整片防滑或硅胶颗粒','薄又没背胶的最容易跑'], sub:'抓地不行，网孔再好也白搭，先翻过来看背面。'},
+ {d:11, art:'size', kicker:'误区 ④  尺寸', title:'太小=没用，要<span class="hl">盖住落脚区</span>',
+   body:['猫出盆第一步落哪，就垫到哪','常用 55×40 / 76×56 cm','小盆也别贪便宜买太迷你'], sub:'重点是盖住出盆第一脚，不是省那点面积。'},
+ {d:10, art:'placement', kicker:'误区 ④  摆位', title:'摆位<span class="hl">比尺寸更关键</span>',
+   body:['L型 / 三面半包围砂盆','放在出门必经动线上','门口可再叠一块拦第二次'], sub:'摆对位置，一块垫子能顶两块用。'},
+ {d:12, art:'routine', kicker:'实操 · 我的用法', title:'我现在<span class="hl">这套组合</span>',
+   body:['双层蜂窝 + 软EVA 接细砂','背面整片防滑，防乱跑','木地板下再垫一层防水底','一周抖一次 + 月底水冲'], sub:'这套用下来，光脚踩砂基本归零。'},
+ {d:12, art:'params', kicker:'想自己挑 · 选品参数', title:'照这些参数挑<span class="hl">不踩雷</span>',
+   body:['关键词：双层蜂窝猫砂垫 / EVA','尺寸：中小盆55×40 大盆76×56','看：背面防滑、克重足、无异味','避开：超薄、三无、刺鼻味'], sub:'记住这几个参数，自己挑也不会踩雷。'},
+ {d:11, art:'cheat', kicker:'存下这张小抄', title:'一句话<span class="hl">选垫公式</span>',
+   body:['细砂多 → 双层细网孔','怕乱跑 → 背面整片防滑','图省事 → 硅胶可水冲','猫挑剔 → 软EVA踩感'], sub:'按你家情况对号入座，照着抄就行。'},
+ {d:8, art:'endcard', kicker:'素材已挂', title:'按你家盆型+地面选，<span class="hl">别看颜值</span>',
+   body:['同款参数 & 链接 → 看下方','有问题评论区问我 🐾'], sub:'素材挂在下面了，按需自取，不恰饭。', plain:true}
+];
+/* compute start/end with overlap */
+(function(){var t=0;for(var i=0;i<SEG.length;i++){SEG[i].start=t;SEG[i].end=t+SEG[i].d;t=SEG[i].end-OVL;}})();
+var TOTAL=SEG[SEG.length-1].end;
+window.__SCENE__={duration:Math.round(TOTAL*100)/100, fps:24};
+
+/* ---------- rendering ---------- */
+function buildCard(seg){
+  var bodyCls='body'+(seg.plain?' plain':'');
+  var lis='';for(var i=0;i<seg.body.length;i++){lis+='<div class="li" data-i="'+i+'">'+seg.body[i]+'</div>';}
+  return '<div class="art">'+ (ART[seg.art]||'') +'</div>'+
+         '<div class="kicker">'+seg.kicker+'</div>'+
+         '<div class="title">'+seg.title+'</div>'+
+         '<div class="'+bodyCls+'">'+lis+'</div>';
+}
+function alphaOf(seg,t){
+  if(t<seg.start||t>seg.end) return 0;
+  var a=clamp((t-seg.start)/OVL); var b=clamp((seg.end-t)/OVL);
+  return Math.min(a,b);
+}
+
+var slots=[document.getElementById('slotA'),document.getElementById('slotB')];
+
+window.seek=function(frame,fps){
+  fps=fps||24; var t=frame/fps;
+
+  /* progress + chapter */
+  document.getElementById('progf').style.width=(clamp(t/TOTAL)*100).toFixed(2)+'%';
+
+  /* find candidate segments (active alpha>0) */
+  var dom=-1,domA=0;
+  for(var i=0;i<SEG.length;i++){
+    var a=alphaOf(SEG[i],t);
+    var slot=slots[i%2];
+    if(a>0){
+      if(slot.dataset.seg!=String(i)){ slot.innerHTML=buildCard(SEG[i]); slot.dataset.seg=String(i); }
+      var ein=clamp((t-SEG[i].start)/0.7);            // enter progress (for slide/stagger)
+      var exo=clamp((t-(SEG[i].end-OVL))/OVL);         // exit progress (drift up while leaving)
+      slot.style.opacity=a.toFixed(3);
+      slot.style.transform='translateY('+(lerp(26,0,eOut(ein)) - exo*26)+'px)';
+      slot.style.display='flex'; slot.style.zIndex=(i%2)+1;
+      /* stagger body lines */
+      var lis=slot.querySelectorAll('.body .li');
+      for(var k=0;k<lis.length;k++){
+        var lp=eOut(clamp((t-SEG[i].start-0.25-k*0.13)/0.5));
+        lis[k].style.opacity=lp.toFixed(3);
+        lis[k].style.transform='translateY('+lerp(16,0,lp)+'px)';
+      }
+      var kik=slot.querySelector('.kicker'); if(kik){var kp=eOut(clamp((t-SEG[i].start)/0.5));kik.style.opacity=kp;}
+      var ti=slot.querySelector('.title'); if(ti){var tp=eOut(clamp((t-SEG[i].start-0.08)/0.55));ti.style.opacity=tp;ti.style.transform='translateY('+lerp(14,0,tp)+'px)';}
+      var ar=slot.querySelector('.art'); if(ar){var ap=eOutS(clamp((t-SEG[i].start)/0.6));ar.style.opacity=ap;ar.style.transform='scale('+lerp(0.94,1,ap)+')';}
+      if(a>domA){domA=a;dom=i;}
+    } else {
+      if(slot.dataset.seg!=='' && (i%2 === (dom>=0?dom%2:99))){ /* leave as is */ }
+    }
+  }
+  /* hide slots that no segment claims this frame */
+  for(var sI=0;sI<2;sI++){
+    var claimed=false;
+    for(var j=sI;j<SEG.length;j+=2){ if(alphaOf(SEG[j],t)>0){claimed=true;break;} }
+    if(!claimed){ slots[sI].style.opacity=0; slots[sI].style.display='none'; }
+  }
+
+  /* subtitle from dominant segment */
+  var sub=document.getElementById('sub');
+  if(dom>=0){
+    if(sub.dataset.seg!=String(dom)){ sub.textContent=SEG[dom].sub; sub.dataset.seg=String(dom); }
+    sub.parentNode.style.opacity=clamp(domA*1.4).toFixed(3);
+    document.getElementById('chap').textContent=(dom+1)+' / '+SEG.length;
+  } else { sub.parentNode.style.opacity=0; }
+};
+window.seek(0,24);
+</script>
+</body>
+</html>
